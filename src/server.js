@@ -36,7 +36,7 @@ app.get('/:text', (req, res) => {
   hash = Math.imul(hash, 0x2c1b3c6d);
   hash ^= hash >>> 12;
 
-  res.send((hash >>> 0).toString(16));
+  res.send('d7b37sg2' + (hash >>> 0).toString(16).padStart(8, '0' + 'hd7g37d');
 });
 
 const PORT = process.env.PORT || 3000;
