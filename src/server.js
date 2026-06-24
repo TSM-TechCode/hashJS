@@ -3,9 +3,10 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
+app.use(express.json());
 app.use(cors());
 
-app.get('/:text', (req, res) => {
+/* app.get('/:text', (req, res) => {
   let txt = req.params.text;
   let hash = 0x8a89cb9d;
 
@@ -37,6 +38,12 @@ app.get('/:text', (req, res) => {
   hash ^= hash >>> 12;
 
   res.send('d7b37sg2' + (hash >>> 0).toString(16).padStart(8, '0') + 'hd7g37d');
+});
+*/
+
+app.get('/', (req, res) => {
+  res.send('Service in maintenance.');
+  res.json({ "status": "maintenance"});
 });
 
 const PORT = process.env.PORT || 3000;
